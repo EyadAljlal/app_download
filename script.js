@@ -4,7 +4,7 @@ const translations = {
         heroTitle: "أدر طلباتك <br><span style='color: var(--primary)'>بكل سهولة.</span>",
         heroDesc: "تطبيق المفيد هو المنصة المثالية لتجار الجملة المضافين لدينا لإدارة وإضافة طلباتهم بسرعة وكفاءة عالية.",
         appStore: "متجر التطبيقات",
-        playStore: "جوجل بلاي",
+        playStore: "تحميل (APK)",
         feat1Title: "إدارة سريعة",
         feat1Desc: "مصمم لتسريع عملية الطلبات. المفيد سيوفر عليك الوقت ويزيد من كفاءة عملك.",
         feat2Title: "مخصص للتجار",
@@ -18,7 +18,7 @@ const translations = {
         heroTitle: "Manage Your <br><span style='color: var(--primary)'>Wholesale Orders.</span>",
         heroDesc: "Almofeed is the dedicated platform for our wholesalers to seamlessly add and manage their orders with high efficiency.",
         appStore: "App Store",
-        playStore: "Google Play",
+        playStore: "Download (APK)",
         feat1Title: "Rapid Ordering",
         feat1Desc: "Designed for speed. Almofeed saves you time and boosts your business productivity.",
         feat2Title: "Merchant Focused",
@@ -79,13 +79,14 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(card);
     });
 
-    // Button click simulation
+    // Button click feedback for inactive links
     const buttons = document.querySelectorAll('.btn');
     buttons.forEach(btn => {
         btn.addEventListener('click', (e) => {
             if (btn.tagName === 'A' && btn.getAttribute('href') === '#') {
                 e.preventDefault();
-                alert(document.documentElement.lang === 'ar' ? 'هذه صفحة تجريبية.' : 'This is a demo page.');
+                const isAr = document.documentElement.lang === 'ar';
+                alert(isAr ? 'هذا الرابط سيكون متاحاً قريباً على متجر التطبيقات.' : 'This link will be available soon on the App Store.');
             }
         });
     });

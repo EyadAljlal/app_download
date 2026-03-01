@@ -55,7 +55,12 @@ header {
     align-items: center;
 }
 
+
+
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-size: 2rem;
     font-weight: 800;
     background: var(--accent-gradient);
@@ -64,6 +69,18 @@ header {
     letter-spacing: -0.05em;
 }
 
+.logo-text {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 800;
+    font-size: 2.5rem;
+    color: var(--primary);
+}
+
+.logo-img {
+    height: 100px; /* يمكنك تكبير أو تصغير الحجم */
+    width: auto;
+    object-fit: contain;
+}
 /* Hero Section */
 .hero {
     display: flex;

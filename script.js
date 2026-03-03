@@ -32,7 +32,7 @@ const translations = {
 
 function downloadApk() {
     if (/Android/i.test(navigator.userAgent)) {
-        window.location.href = "app-releaseV0.1.apk";
+        window.location.href = "almofeed-app-releaseV1.0.1.apk";
     } else {
         alert("يرجى فتح الموقع من جهاز Android لتحميل التطبيق.");
     }

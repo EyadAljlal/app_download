@@ -27,7 +27,6 @@ const translations = {
         feat3Desc: "Track your order status in real-time from anywhere via our mobile application.",
         footer: "&copy; 2026 Almofeed App. All rights reserved."
     }
-
 };
 
 function downloadApk() {
@@ -57,6 +56,21 @@ function switchLang(lang) {
     document.querySelectorAll('[data-key="feat-2-desc"]').forEach(el => el.innerText = t.feat2Desc);
     document.querySelectorAll('[data-key="feat-3-title"]').forEach(el => el.innerText = t.feat3Title);
     document.querySelectorAll('[data-key="feat-3-desc"]').forEach(el => el.innerText = t.feat3Desc);
+    
+    // Reinitialize Lucide icons for the new icons
+    lucide.createIcons();
+}
+
+function toggleTheme() {
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute('data-theme') || 'light';
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    // Update Lucide icons
+    lucide.createIcons();
 }
 
 // Simple scroll reveal interaction
@@ -65,9 +79,19 @@ document.addEventListener('DOMContentLoaded', () => {
         threshold: 0.1
     };
     
-    // Check if there's a stored preference or default to ar
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    
+    // Check if there's a stored language preference or default to ar
     const savedLang = localStorage.getItem('pref-lang') || 'ar';
     switchLang(savedLang);
+
+    // Theme toggle button
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -111,10 +135,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Save preference when switching
+    // Save language preference when switching
     window.switchLang = (lang) => {
         switchLang(lang);
         localStorage.setItem('pref-lang', lang);
-    }
+    };
 });
-

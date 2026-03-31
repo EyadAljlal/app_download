@@ -11,7 +11,7 @@ const translations = {
         feat2Desc: "نظام خاص وحصري لتجار الجملة المسجلين في نظامنا وعملائهم لضمان سلاسة العمليات.",
         feat3Title: "متابعة فورية",
         feat3Desc: "تابع حالة طلباتك في الوقت الفعلي ومن أي مكان عبر تطبيق الهاتف.",
-        footer: "&copy; 2026 تطبيق المفيد. جميع الحقوق محفوظة."
+        footer: "&copy; 2026  ToofanSoft جميع الحقوق محفوظة."
     },
     en: {
         title: "Almofeed App | Wholesale Orders",
